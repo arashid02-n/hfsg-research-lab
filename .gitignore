@@ -1,0 +1,22 @@
+# HFSG Research Lab — ignore generated artifacts
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# recorded runs (reproduced on demand; evidence stays in results/validation_evidence)
+results/*
+!results/validation_evidence/
+!results/validation_evidence/**
+
+# Gate 2A recorded benchmark / proof stores (reproducible via bench/ and proof/)
+runs/
+bench/runs/
+
+# browser screenshots cache / playwright
+screenshots/.cache/
+node_modules/
+
+# OS
+.DS_Store
