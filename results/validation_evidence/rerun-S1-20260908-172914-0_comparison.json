@@ -1,0 +1,463 @@
+{
+  "scenario_id": "S1",
+  "status": {
+    "A": "VALIDATED",
+    "B": "VALIDATED",
+    "MATCH": true
+  },
+  "runs": [
+    {
+      "run_index": 0,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "276456660741356034",
+        "B": "276456660741356034",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1199",
+        "B": "1199",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3549",
+        "B": "3549",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 1,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "1058164793264608762",
+        "B": "1058164793264608762",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1199",
+        "B": "1199",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3565",
+        "B": "3565",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 2,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "5286311076552809590",
+        "B": "5286311076552809590",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1192",
+        "B": "1192",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3530",
+        "B": "3530",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 3,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "3125675021271633734",
+        "B": "3125675021271633734",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1159",
+        "B": "1159",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3482",
+        "B": "3482",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 4,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "7772821530225387842",
+        "B": "7772821530225387842",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1152",
+        "B": "1152",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3433",
+        "B": "3433",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 5,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "817008895474398956",
+        "B": "817008895474398956",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1211",
+        "B": "1211",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3611",
+        "B": "3611",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 6,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "1513068997524123011",
+        "B": "1513068997524123011",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1155",
+        "B": "1155",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3437",
+        "B": "3437",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 7,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "6753276407700429733",
+        "B": "6753276407700429733",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1172",
+        "B": "1172",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3509",
+        "B": "3509",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    },
+    {
+      "run_index": 8,
+      "configuration_hash": {
+        "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+        "MATCH": true
+      },
+      "child_seed": {
+        "A": "5425386346784787015",
+        "B": "5425386346784787015",
+        "MATCH": "True"
+      },
+      "patient_count": {
+        "A": "1183",
+        "B": "1183",
+        "MATCH": "True"
+      },
+      "event_count": {
+        "A": "3537",
+        "B": "3537",
+        "MATCH": "True"
+      },
+      "max_abs_mbe": {
+        "A": 0.0,
+        "B": 0.0,
+        "MATCH": "True"
+      }
+    }
+  ],
+  "all_run_fields_match": true,
+  "fingerprints": {
+    "files": [
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0000.parquet",
+        "sha256_A": "e7f8bd3ed482811957a74dc6d998d9efd3ce35442a5a14edb8412bc387d7a1ab",
+        "sha256_B": "e7f8bd3ed482811957a74dc6d998d9efd3ce35442a5a14edb8412bc387d7a1ab",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0001.parquet",
+        "sha256_A": "9c3f7dce9480328079fd2270314c80a6ebb2aef709dda826c96a0fdbe32d99cc",
+        "sha256_B": "9c3f7dce9480328079fd2270314c80a6ebb2aef709dda826c96a0fdbe32d99cc",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0002.parquet",
+        "sha256_A": "2fdab94e1dac5978ad0875b0800e389aad012f4d5b27e9b83f8f255e46f2ec0d",
+        "sha256_B": "2fdab94e1dac5978ad0875b0800e389aad012f4d5b27e9b83f8f255e46f2ec0d",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0003.parquet",
+        "sha256_A": "8c945613928b829967274adbc46eff8088547e654892eeb1c27ed7bd9100904e",
+        "sha256_B": "8c945613928b829967274adbc46eff8088547e654892eeb1c27ed7bd9100904e",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0004.parquet",
+        "sha256_A": "fe036a997607c80712d911b9536e3a9656dad80a8954a0276bba879a4db0d327",
+        "sha256_B": "fe036a997607c80712d911b9536e3a9656dad80a8954a0276bba879a4db0d327",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0005.parquet",
+        "sha256_A": "175205d82eb9f414fbf284c3ee1f8497eee361eddea81da43f8f9f2191634788",
+        "sha256_B": "175205d82eb9f414fbf284c3ee1f8497eee361eddea81da43f8f9f2191634788",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0006.parquet",
+        "sha256_A": "66be8b125436bdd98c85b945c42c4e01db47d9e020303942e1e53f2ad6a48541",
+        "sha256_B": "66be8b125436bdd98c85b945c42c4e01db47d9e020303942e1e53f2ad6a48541",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0007.parquet",
+        "sha256_A": "e3db5883947d416b0ceb0e06e2090f607985e0228a4b1f4ab6c800177abd99fa",
+        "sha256_B": "e3db5883947d416b0ceb0e06e2090f607985e0228a4b1f4ab6c800177abd99fa",
+        "MATCH": true
+      },
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0008.parquet",
+        "sha256_A": "b7fcc4ed3fbd371bb813fa9d9e5a0941d53c2fb02aa90efef04d0e79c4655e5e",
+        "sha256_B": "b7fcc4ed3fbd371bb813fa9d9e5a0941d53c2fb02aa90efef04d0e79c4655e5e",
+        "MATCH": true
+      },
+      {
+        "file": "dataset_manifest.json",
+        "sha256_A": "e5be1a764a32af211edfc689af8bd4652183df643b398853a46763a61545016e",
+        "sha256_B": "e5be1a764a32af211edfc689af8bd4652183df643b398853a46763a61545016e",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0000.parquet",
+        "sha256_A": "57a0029b7726d883f068790b6398cdcd136ce908c81f30cd3a7abc5a704de05c",
+        "sha256_B": "57a0029b7726d883f068790b6398cdcd136ce908c81f30cd3a7abc5a704de05c",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0001.parquet",
+        "sha256_A": "0c826db814a81fc25c40676e400938c8da55aedce2e3a89963e8d8045f56542c",
+        "sha256_B": "0c826db814a81fc25c40676e400938c8da55aedce2e3a89963e8d8045f56542c",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0002.parquet",
+        "sha256_A": "4257fb7892f4281ad4e4b083c0017d8bdd50278df281f4e50695073d423da600",
+        "sha256_B": "4257fb7892f4281ad4e4b083c0017d8bdd50278df281f4e50695073d423da600",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0003.parquet",
+        "sha256_A": "e77f8cf83af21848b57b4050972d426560e40ebd871ce93f291fcb4895abab9d",
+        "sha256_B": "e77f8cf83af21848b57b4050972d426560e40ebd871ce93f291fcb4895abab9d",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0004.parquet",
+        "sha256_A": "9155658bdf9db2077ca17e826205352eb42a8b081d10caaefac47374404cf3bf",
+        "sha256_B": "9155658bdf9db2077ca17e826205352eb42a8b081d10caaefac47374404cf3bf",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0005.parquet",
+        "sha256_A": "cb6463a9b3d3983740b5fffd9caf0b0ef1496c584ec54fd8352983689a536042",
+        "sha256_B": "cb6463a9b3d3983740b5fffd9caf0b0ef1496c584ec54fd8352983689a536042",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0006.parquet",
+        "sha256_A": "157590700691f82235ddbf690caaf63f6ea3ce7142d7d689b459352e9dd11394",
+        "sha256_B": "157590700691f82235ddbf690caaf63f6ea3ce7142d7d689b459352e9dd11394",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0007.parquet",
+        "sha256_A": "3c8d58bd216d91de5c84d95c1ab59ed06c760f20c8f94012cdc1e17d7ce7e9f0",
+        "sha256_B": "3c8d58bd216d91de5c84d95c1ab59ed06c760f20c8f94012cdc1e17d7ce7e9f0",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0008.parquet",
+        "sha256_A": "d55bf6060f47771972ece39564a39884cbefbba525cf418921f36428dac45776",
+        "sha256_B": "d55bf6060f47771972ece39564a39884cbefbba525cf418921f36428dac45776",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0000.parquet",
+        "sha256_A": "84802c809b1eb279d7ea70fbda1d5ab314ac2c6f3442ca00794ee9872e102636",
+        "sha256_B": "84802c809b1eb279d7ea70fbda1d5ab314ac2c6f3442ca00794ee9872e102636",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0001.parquet",
+        "sha256_A": "38fd52ee7b4632b0b8cc702411480d655c34bb4bf9f6bb2e5451662289d3a21c",
+        "sha256_B": "38fd52ee7b4632b0b8cc702411480d655c34bb4bf9f6bb2e5451662289d3a21c",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0002.parquet",
+        "sha256_A": "5812ca8fd3347929c5997a1add6c5e495930876127639080f1106c4c731510df",
+        "sha256_B": "5812ca8fd3347929c5997a1add6c5e495930876127639080f1106c4c731510df",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0003.parquet",
+        "sha256_A": "170cd912a6ecd261affdf7ee475b4f71e2e196a78bd130ddbacae65a785b1be2",
+        "sha256_B": "170cd912a6ecd261affdf7ee475b4f71e2e196a78bd130ddbacae65a785b1be2",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0004.parquet",
+        "sha256_A": "1c0e61a1a7a5eac1f264f284c619086d8a2f8b7024826b7cf6edde122e426037",
+        "sha256_B": "1c0e61a1a7a5eac1f264f284c619086d8a2f8b7024826b7cf6edde122e426037",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0005.parquet",
+        "sha256_A": "61334dd6cc9768587db889f4fd71e7bebf40d0ae7038b7c16a55f6443a0ec620",
+        "sha256_B": "61334dd6cc9768587db889f4fd71e7bebf40d0ae7038b7c16a55f6443a0ec620",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0006.parquet",
+        "sha256_A": "b870825460d111903df0b62897898abd17262822b0ae3cbfe3c5f6e661ba887c",
+        "sha256_B": "b870825460d111903df0b62897898abd17262822b0ae3cbfe3c5f6e661ba887c",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0007.parquet",
+        "sha256_A": "28902172da4b2a9cacc4ba4cb149cf7d24856e8dd2306674f31685fd4f748199",
+        "sha256_B": "28902172da4b2a9cacc4ba4cb149cf7d24856e8dd2306674f31685fd4f748199",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0008.parquet",
+        "sha256_A": "74c79005a50d71b496fd422d282d5a3e1bb00c585c25e1e8fb15e8dcb9c25b98",
+        "sha256_B": "74c79005a50d71b496fd422d282d5a3e1bb00c585c25e1e8fb15e8dcb9c25b98",
+        "MATCH": true
+      },
+      {
+        "file": "scenario_comparison.csv",
+        "sha256_A": "e70aebb0b9a4ae9fe3cd95afbcb4fd7b50297ed7aadc64ec9de47f01b1ce4e36",
+        "sha256_B": "e70aebb0b9a4ae9fe3cd95afbcb4fd7b50297ed7aadc64ec9de47f01b1ce4e36",
+        "MATCH": true
+      },
+      {
+        "file": "simulation_summary.parquet",
+        "sha256_A": "814549600d5e220a93100224f3697f8a71db323d7b19424854560041909d3492",
+        "sha256_B": "814549600d5e220a93100224f3697f8a71db323d7b19424854560041909d3492",
+        "MATCH": true
+      },
+      {
+        "file": "validation_report.json",
+        "sha256_A": "fcb77485e054e3d0164bc28f392a2a80be9937167ae544dec0e12ccfd6973fcb",
+        "sha256_B": "fcb77485e054e3d0164bc28f392a2a80be9937167ae544dec0e12ccfd6973fcb",
+        "MATCH": true
+      }
+    ],
+    "all_data_files_match": true,
+    "method": [
+      "Parquet rows: SHA-256 with volatile columns ['simulation_id', 'created_at'] excluded (MODEL.md section 28).",
+      "scenario_comparison.csv: raw-byte SHA-256 (no volatile fields).",
+      "JSON artifacts: SHA-256 over normalized JSON with documented volatile keys ['batch_id', 'configuration_hash', 'dataset_id', 'generation_timestamp', 'recomputed_configuration_hash'] removed."
+    ]
+  },
+  "overall_match": true,
+  "original_label": "demo-S1-20260908-172818-0",
+  "rerun_label": "rerun-S1-20260908-172914-0",
+  "rerun_status": "VALIDATED"
+}
