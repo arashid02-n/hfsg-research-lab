@@ -1,0 +1,100 @@
+{
+  "scenario_id": "S1",
+  "master_seed": 20260805,
+  "config": "config/base.yaml (frozen)",
+  "run_index": 0,
+  "fields": {
+    "configuration_hash": {
+      "A": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+      "B": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+      "MATCH": true
+    },
+    "child_seed": {
+      "A": 276456660741356034,
+      "B": 276456660741356034,
+      "MATCH": true
+    },
+    "patient_count": {
+      "A": 1199,
+      "B": 1199,
+      "MATCH": true
+    },
+    "event_count": {
+      "A": 3549,
+      "B": 3549,
+      "MATCH": true
+    },
+    "validation_status": {
+      "A": "VALIDATED",
+      "B": "VALIDATED",
+      "MATCH": true
+    },
+    "max_abs_mbe": {
+      "A": 0.0,
+      "B": 0.0,
+      "MATCH": true
+    },
+    "reconciliation_issues": {
+      "A": 0,
+      "B": 0,
+      "MATCH": true
+    },
+    "event_quota_mismatches": {
+      "A": 0,
+      "B": 0,
+      "MATCH": true
+    }
+  },
+  "fingerprints": {
+    "file": [
+      {
+        "file": "aggregate_timeseries/scenario_id=S1/part-0000.parquet",
+        "sha256_A": "e7f8bd3ed482811957a74dc6d998d9efd3ce35442a5a14edb8412bc387d7a1ab",
+        "sha256_B": "e7f8bd3ed482811957a74dc6d998d9efd3ce35442a5a14edb8412bc387d7a1ab",
+        "MATCH": true
+      },
+      {
+        "file": "dataset_manifest.json",
+        "sha256_A": "7ac32127b735b2f40cc08f8f9e6ad7022f6cfe485eaed9de37ba0b3a5c8c0da0",
+        "sha256_B": "7ac32127b735b2f40cc08f8f9e6ad7022f6cfe485eaed9de37ba0b3a5c8c0da0",
+        "MATCH": true
+      },
+      {
+        "file": "patient_events/scenario_id=S1/part-0000.parquet",
+        "sha256_A": "57a0029b7726d883f068790b6398cdcd136ce908c81f30cd3a7abc5a704de05c",
+        "sha256_B": "57a0029b7726d883f068790b6398cdcd136ce908c81f30cd3a7abc5a704de05c",
+        "MATCH": true
+      },
+      {
+        "file": "patients/scenario_id=S1/part-0000.parquet",
+        "sha256_A": "84802c809b1eb279d7ea70fbda1d5ab314ac2c6f3442ca00794ee9872e102636",
+        "sha256_B": "84802c809b1eb279d7ea70fbda1d5ab314ac2c6f3442ca00794ee9872e102636",
+        "MATCH": true
+      },
+      {
+        "file": "scenario_comparison.csv",
+        "sha256_A": "91b2eff753eb3bc2afa41b06f46943275357d0195fa34ae9720fc16778aeb803",
+        "sha256_B": "91b2eff753eb3bc2afa41b06f46943275357d0195fa34ae9720fc16778aeb803",
+        "MATCH": true
+      },
+      {
+        "file": "simulation_summary.parquet",
+        "sha256_A": "781ac118bfc41847bd2c0d2971a5d984e626ec4e55a148e798080802d1e8d0e8",
+        "sha256_B": "781ac118bfc41847bd2c0d2971a5d984e626ec4e55a148e798080802d1e8d0e8",
+        "MATCH": true
+      },
+      {
+        "file": "validation_report.json",
+        "sha256_A": "12a5cf97415b3a3e3d912d0f555c4d990f4b7254543c8597f59114a56754430a",
+        "sha256_B": "12a5cf97415b3a3e3d912d0f555c4d990f4b7254543c8597f59114a56754430a",
+        "MATCH": true
+      }
+    ],
+    "all_data_files_match": true,
+    "method": [
+      "Parquet rows: SHA-256 with volatile columns ['simulation_id', 'created_at'] excluded (context.py / MODEL.md section 28).",
+      "scenario_comparison.csv: raw-byte SHA-256 (no volatile fields).",
+      "JSON artifacts: SHA-256 over normalized JSON with documented volatile keys ['batch_id', 'configuration_hash', 'dataset_id', 'generation_timestamp', 'recomputed_configuration_hash'] removed."
+    ]
+  }
+}

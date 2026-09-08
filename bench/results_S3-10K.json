@@ -1,0 +1,70 @@
+{
+  "run_label": "S3-10K",
+  "scenario_id": "S3",
+  "master_seed": 20260805,
+  "target_patients": 10000,
+  "planned_runs_per_scenario": 60,
+  "batch_id": "HFSG-BATCH-20260907-132303",
+  "out_dir": "bench/runs/S3-10K",
+  "patients": 10421,
+  "events": 28677,
+  "generation_elapsed_seconds": 7.6,
+  "validation_elapsed_seconds": 19.188,
+  "total_elapsed_seconds": 26.788,
+  "peak_rss_bytes": 146374656,
+  "output_size_bytes": 745306,
+  "validation_status": "VALIDATED",
+  "critical_failure_count": 0,
+  "max_abs_mbe": 0.0,
+  "reconciliation_issues": 0,
+  "event_quota_mismatches": 0,
+  "effective_configuration_hash": "c698eb99616bc8fe025921db5adc55ad7526c4ad6c337d199d680647bed9f151",
+  "manifest_configuration_hash": "0ea9649bb054601e307ef8e412d67fa2b124fa1b4864ef7f77ab9029cbe39bfd",
+  "runs": [
+    {
+      "simulation_id": "39c9ca80ca79477cab5d702af2014339",
+      "run_index": 0,
+      "child_seed": 7022587092401682499,
+      "patients": 1734,
+      "events": 4772
+    },
+    {
+      "simulation_id": "c372c8b53c094145b8859d6bd1203a33",
+      "run_index": 1,
+      "child_seed": 5610576091921986085,
+      "patients": 1751,
+      "events": 4810
+    },
+    {
+      "simulation_id": "055f8863b97949ae8ee74604c34e93b2",
+      "run_index": 2,
+      "child_seed": 5341818129485430665,
+      "patients": 1763,
+      "events": 4837
+    },
+    {
+      "simulation_id": "6046dae8f6844193aecec059a8fd0b8b",
+      "run_index": 3,
+      "child_seed": 8036696467953141401,
+      "patients": 1766,
+      "events": 4844
+    },
+    {
+      "simulation_id": "7d75111b3a5c49f59c79836dd0a4a5ad",
+      "run_index": 4,
+      "child_seed": 533475937375597850,
+      "patients": 1707,
+      "events": 4713
+    },
+    {
+      "simulation_id": "9d9137eff7914ff78509129747363eb2",
+      "run_index": 5,
+      "child_seed": 3942864400871489301,
+      "patients": 1700,
+      "events": 4701
+    }
+  ],
+  "core_repo": "/home/rashid/projects/hfsg",
+  "core_commit": "affe7c8",
+  "config": "/home/rashid/projects/hfsg/config/base.yaml"
+}

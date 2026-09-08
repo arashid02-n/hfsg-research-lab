@@ -1,0 +1,13 @@
+# HFSG Research Lab runtime + dev dependencies (phase 1 Lab environment).
+# The Lab orchestrates the frozen HFSG Core; it does NOT modify it.
+
+# runtime
+streamlit>=1.63.0
+pandas>=2.2
+pyarrow>=14.0
+PyYAML>=6.0
+numpy>=1.26
+
+# dev / acceptance
+pytest>=8.0
+playwright>=1.40

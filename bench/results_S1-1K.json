@@ -1,0 +1,35 @@
+{
+  "run_label": "S1-1K",
+  "scenario_id": "S1",
+  "master_seed": 20260805,
+  "target_patients": 1000,
+  "planned_runs_per_scenario": 60,
+  "batch_id": "HFSG-BATCH-20260907-131953",
+  "out_dir": "bench/runs/S1-1K",
+  "patients": 1199,
+  "events": 3549,
+  "generation_elapsed_seconds": 1.031,
+  "validation_elapsed_seconds": 3.504,
+  "total_elapsed_seconds": 4.535,
+  "peak_rss_bytes": 139268096,
+  "output_size_bytes": 138955,
+  "validation_status": "VALIDATED",
+  "critical_failure_count": 0,
+  "max_abs_mbe": 0.0,
+  "reconciliation_issues": 0,
+  "event_quota_mismatches": 0,
+  "effective_configuration_hash": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+  "manifest_configuration_hash": "9836eeb2ffda9ddc1205054a2c8b12353199a1b7905eb1b05ca8c2c8925e50ef",
+  "runs": [
+    {
+      "simulation_id": "a9a03e01599e432a80044b2fcf9ebc56",
+      "run_index": 0,
+      "child_seed": 276456660741356034,
+      "patients": 1199,
+      "events": 3549
+    }
+  ],
+  "core_repo": "/home/rashid/projects/hfsg",
+  "core_commit": "affe7c8",
+  "config": "/home/rashid/projects/hfsg/config/base.yaml"
+}

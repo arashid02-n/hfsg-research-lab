@@ -1,0 +1,175 @@
+{
+  "run_label": "S1-25K",
+  "scenario_id": "S1",
+  "master_seed": 20260805,
+  "target_patients": 25000,
+  "planned_runs_per_scenario": 60,
+  "batch_id": "HFSG-BATCH-20260907-132139",
+  "out_dir": "bench/runs/S1-25K",
+  "patients": 25110,
+  "events": 74625,
+  "generation_elapsed_seconds": 23.377,
+  "validation_elapsed_seconds": 56.607,
+  "total_elapsed_seconds": 79.984,
+  "peak_rss_bytes": 144130048,
+  "output_size_bytes": 2437900,
+  "validation_status": "VALIDATED",
+  "critical_failure_count": 0,
+  "max_abs_mbe": 0.0,
+  "reconciliation_issues": 0,
+  "event_quota_mismatches": 0,
+  "effective_configuration_hash": "e460cf544c622cfa495fa6cfe69a68605e9d57cd82ad95ba6df07e539006ced8",
+  "manifest_configuration_hash": "c44bae774ee36b0602b76a7f2a5d1cbb8f186e44fe007156f8de95f42c752dd5",
+  "runs": [
+    {
+      "simulation_id": "5406eb37a3eb4d0fb5a40e09432b9cea",
+      "run_index": 0,
+      "child_seed": 276456660741356034,
+      "patients": 1199,
+      "events": 3549
+    },
+    {
+      "simulation_id": "80ff3acb16ce47338d68c900764b228f",
+      "run_index": 1,
+      "child_seed": 1058164793264608762,
+      "patients": 1199,
+      "events": 3565
+    },
+    {
+      "simulation_id": "be17b02ecf344230ab3d111a32423249",
+      "run_index": 2,
+      "child_seed": 5286311076552809590,
+      "patients": 1192,
+      "events": 3530
+    },
+    {
+      "simulation_id": "9afbb77c4a7e42cf845cff3ad635695b",
+      "run_index": 3,
+      "child_seed": 3125675021271633734,
+      "patients": 1159,
+      "events": 3482
+    },
+    {
+      "simulation_id": "32d9e7411bfb4dbb9debc03240da2af8",
+      "run_index": 4,
+      "child_seed": 7772821530225387842,
+      "patients": 1152,
+      "events": 3433
+    },
+    {
+      "simulation_id": "5745c5d639d34d1ba198c948fc9726d3",
+      "run_index": 5,
+      "child_seed": 817008895474398956,
+      "patients": 1211,
+      "events": 3611
+    },
+    {
+      "simulation_id": "4ef0a2183f0a43f083acc8720f45dd4f",
+      "run_index": 6,
+      "child_seed": 1513068997524123011,
+      "patients": 1155,
+      "events": 3437
+    },
+    {
+      "simulation_id": "2ee87314d56c44c2a33e6eea0f18e73c",
+      "run_index": 7,
+      "child_seed": 6753276407700429733,
+      "patients": 1172,
+      "events": 3509
+    },
+    {
+      "simulation_id": "37ee4db362964e0ab1cffd57a263c2bb",
+      "run_index": 8,
+      "child_seed": 5425386346784787015,
+      "patients": 1183,
+      "events": 3537
+    },
+    {
+      "simulation_id": "df51967f21504ce18a29bf2faf6d2e53",
+      "run_index": 9,
+      "child_seed": 1034058102389867341,
+      "patients": 1124,
+      "events": 3375
+    },
+    {
+      "simulation_id": "94179905964b42ac833547a0905c32a7",
+      "run_index": 10,
+      "child_seed": 5706310906486300267,
+      "patients": 1265,
+      "events": 3717
+    },
+    {
+      "simulation_id": "d60fe0135f7242fe9795122e8044724e",
+      "run_index": 11,
+      "child_seed": 5654614666785125559,
+      "patients": 1215,
+      "events": 3597
+    },
+    {
+      "simulation_id": "3af96a75087c454e94cba35f90d7b3eb",
+      "run_index": 12,
+      "child_seed": 4535424905917370930,
+      "patients": 1228,
+      "events": 3646
+    },
+    {
+      "simulation_id": "8cd3114f800747d48380fad93d9cb004",
+      "run_index": 13,
+      "child_seed": 7572307858867802973,
+      "patients": 1213,
+      "events": 3613
+    },
+    {
+      "simulation_id": "abd536f563e441b09c125a6f90bddf4f",
+      "run_index": 14,
+      "child_seed": 8493555285451727012,
+      "patients": 1169,
+      "events": 3489
+    },
+    {
+      "simulation_id": "59d4437a6eec43d792c31c6a41eb1caf",
+      "run_index": 15,
+      "child_seed": 2909369789891666171,
+      "patients": 1197,
+      "events": 3537
+    },
+    {
+      "simulation_id": "bd74a70d31e4481fa0d777fe1e3ac672",
+      "run_index": 16,
+      "child_seed": 371938141350678273,
+      "patients": 1188,
+      "events": 3502
+    },
+    {
+      "simulation_id": "1b16a36c2a794b6e814f3913f2f183a4",
+      "run_index": 17,
+      "child_seed": 2889223713265602314,
+      "patients": 1290,
+      "events": 3801
+    },
+    {
+      "simulation_id": "6e23961af3844c41b07352bb4b10a856",
+      "run_index": 18,
+      "child_seed": 829741530466422265,
+      "patients": 1182,
+      "events": 3522
+    },
+    {
+      "simulation_id": "4b8d84a50f2b4709bd32cd3a482b2a8f",
+      "run_index": 19,
+      "child_seed": 2215918351858239913,
+      "patients": 1212,
+      "events": 3596
+    },
+    {
+      "simulation_id": "d41fa6d62a9d4ed6beb4f772b74e6296",
+      "run_index": 20,
+      "child_seed": 1430601681590201635,
+      "patients": 1205,
+      "events": 3577
+    }
+  ],
+  "core_repo": "/home/rashid/projects/hfsg",
+  "core_commit": "affe7c8",
+  "config": "/home/rashid/projects/hfsg/config/base.yaml"
+}
