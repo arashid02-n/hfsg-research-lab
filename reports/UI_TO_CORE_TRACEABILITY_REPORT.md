@@ -66,7 +66,7 @@ The frozen config file is never written.
 
 ## 5. Verification performed
 
-- `git -C /home/rashid/projects/hfsg status --porcelain` → only pre-existing
+- `git -C <HFSG_CORE> status --porcelain` → only pre-existing
   untracked `data/` (no tracked modifications).
 - Frozen Core suite: 177 passed before and 177 passed after Gate 2B
   (`CORE_REGRESSION_REPORT.md`).

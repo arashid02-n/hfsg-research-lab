@@ -1,28 +1,29 @@
 #!/usr/bin/env bash
-# start_hfsg.sh — start the HFSG Research Lab Streamlit app on a local host.
+# start_hfsg.sh — start the HFSG Research Lab on macOS/Linux.
 #
-# Environment choice (first available wins):
-#   1. <lab>/.venv/bin/python        (recommended: dedicated Lab venv)
-#   2. /home/rashid/projects/hfsg/.venv/bin/python   (frozen Core venv)
-#   3. python3 on PATH
+# Delegates all pre-flight checks and startup to the portable Python launcher
+# (scripts/launcher.py). No developer-specific paths are hard-coded.
 set -euo pipefail
 
 LAB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 PY=""
 for candidate in \
     "$LAB_DIR/.venv/bin/python" \
-    "/home/rashid/projects/hfsg/.venv/bin/python" \
-    "$(command -v python3 || true)"; do
+    "$(command -v python3 || true)" \
+    "$(command -v python || true)"; do
     if [ -n "$candidate" ] && [ -x "$candidate" ]; then
         PY="$candidate"
         break
     fi
 done
+
 if [ -z "$PY" ]; then
     echo "START_HFSG: no Python interpreter found." >&2
-    echo "Create <lab>/.venv or install to a Core venv, then retry." >&2
+    echo "Create a Lab virtualenv and install the dependencies, then retry:" >&2
+    echo "    python3 -m venv .venv" >&2
+    echo "    .venv/bin/pip install -r requirements/requirements.txt" >&2
     exit 1
 fi
 
-echo "HFSG Research Lab using Python: $PY"
-exec "$PY" -m streamlit run "$LAB_DIR/app.py" "$@"
+exec "$PY" "$LAB_DIR/scripts/launcher.py" "$@"

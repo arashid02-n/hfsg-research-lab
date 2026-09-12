@@ -14,4 +14,5 @@ APP_PAGES = [
     "Validation / Reproducibility Center",
     "Export / Run Summary",
     "Academic Quick Demo",
+    "About / System Information",
 ]

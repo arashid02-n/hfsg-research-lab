@@ -12,7 +12,7 @@ frozen-Core data; nothing was mocked.**
 |---|---|
 | App | HFSG Research Lab v1.0.0 (`app.py`, Streamlit 1.63.0) |
 | Core | HFSG Core v0.6.0 — validated baseline `08032c3`; frozen commit `affe7c8` |
-| Config | `/home/rashid/projects/hfsg/config/base.yaml` |
+| Config | `<HFSG_CORE>/config/base.yaml` |
 | Browser driver | Playwright, headless Chromium, 1440×900 |
 | Machine | 2 CPU cores, ~3.7 GB RAM |
 | Date | 2026-09-08 |

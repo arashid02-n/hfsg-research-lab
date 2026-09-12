@@ -36,7 +36,7 @@
       "events": 3565
     }
   ],
-  "core_repo": "/home/rashid/projects/hfsg",
+  "core_repo": "<HFSG_CORE>",
   "core_commit": "affe7c8",
-  "config": "/home/rashid/projects/hfsg/config/base.yaml"
+  "config": "<HFSG_CORE>/config/base.yaml"
 }

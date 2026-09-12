@@ -11,7 +11,7 @@ cleanliness).
 
 | Item | Value |
 |---|---|
-| Core repo | `/home/rashid/projects/hfsg` |
+| Core repo | `<HFSG_CORE>` |
 | HEAD | `affe7c80c17eec717940d07764ea608b0e0f4d3c` (commit `affe7c8`) |
 | Validated baseline | `08032c3` |
 | Engine version | `0.6.0` |

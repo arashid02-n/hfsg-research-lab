@@ -2,7 +2,7 @@
 
 These tests exercise the REAL frozen HFSG Core through the Lab UI:
 
-    1. navigation smoke: all 9 pages render without app exceptions;
+    1. navigation smoke: all 10 pages render without app exceptions;
     2. acceptance flow: Run Simulation (S1, seed, horizon, small target)
        -> live Core generation+validation recorded to the Result Store;
        then Validation / Reproducibility Center "Re-run with Same Seed"
@@ -37,6 +37,7 @@ PAGES = [
     "Validation / Reproducibility Center",
     "Export / Run Summary",
     "Academic Quick Demo",
+    "About / System Information",
 ]
 
 
@@ -51,7 +52,7 @@ def _goto(at: AppTest, page: str) -> AppTest:
     return at
 
 
-def test_nine_pages_render() -> None:
+def test_ten_pages_render() -> None:
     at = _app().run()
     assert not at.exception
     for page in PAGES:

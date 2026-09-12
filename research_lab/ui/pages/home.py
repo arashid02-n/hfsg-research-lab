@@ -8,13 +8,14 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from ...core import core_released_manifest
 from ..state import ensure_state, set_page
 from ..components import disclaimer, page_header, rapport, status_badge
 from ..services import get_store
 
-RELEASED_MANIFEST = Path(
-    "/home/rashid/projects/hfsg/data/output/step9/dataset_manifest.json"
-)
+
+def _released_manifest() -> Path | None:
+    return core_released_manifest()
 
 
 def render() -> None:
@@ -46,8 +47,9 @@ def render() -> None:
 
     with col_right:
         st.subheader("Validated Phase 1 Release (read-only)")
-        if RELEASED_MANIFEST.is_file():
-            with RELEASED_MANIFEST.open("r", encoding="utf-8") as handle:
+        manifest_path = _released_manifest()
+        if manifest_path is not None:
+            with manifest_path.open("r", encoding="utf-8") as handle:
                 manifest = json.load(handle)
             st.info(
                 "The Phase 1 Released Dataset exists at the frozen Core's "

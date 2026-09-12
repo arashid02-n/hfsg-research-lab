@@ -34,12 +34,16 @@ def disclaimer() -> None:
 
 
 def rapport() -> None:
-    """Identity banner with live verification against the frozen repo."""
+    """Identity banner with live verification against the resolved Core."""
     identity = verified_identity()
-    ok = bool(identity["core_integrity_ok"])
-    suffix = "  — verified." if ok else "  — **UNVERIFIED — STOP**"
+    if identity["core_integrity_ok"]:
+        suffix = "  — verified."
+    elif identity["core_found"]:
+        suffix = "  — **LIVE RUN BLOCKED (incompatible Core)**"
+    else:
+        suffix = "  — **Core not found — LIVE RUN BLOCKED**"
     st.info(f"**HFSG Core lineage:** {identity['statement']}{suffix}")
-    if not ok:
+    if not identity["core_integrity_ok"]:
         with st.expander("Lineage verification details"):
             st.json(identity)
 

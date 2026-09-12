@@ -2,6 +2,8 @@
 # START_HFSG — one-click launcher for the HFSG Research Lab.
 #
 # Wraps scripts/start_hfsg.sh so the launcher can live at the repo root.
+# All pre-flight checks and startup are handled portably (no hard-coded
+# developer paths).
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

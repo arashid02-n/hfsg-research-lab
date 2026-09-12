@@ -29,6 +29,12 @@ def sidebar() -> None:
         identity = verified_identity()
         label = identity["statement"]
         st.markdown(f"**Core:** {label}")
+        if identity["core_integrity_ok"]:
+            st.caption("Core verified.")
+        elif identity["core_found"]:
+            st.error("LIVE RUN BLOCKED — incompatible Core.")
+        else:
+            st.error("Core not found — LIVE RUN BLOCKED.")
         busy = st.session_state.get("busy", False)
         if busy:
             st.warning("Work in progress — do not close this tab.")

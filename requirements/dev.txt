@@ -1,0 +1,4 @@
+# HFSG Research Lab — development / acceptance dependencies (maintainers only).
+-r requirements.txt
+pytest>=8.0
+playwright>=1.40

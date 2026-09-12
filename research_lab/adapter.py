@@ -40,23 +40,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-# --- import the frozen Core (never modified) -----------------------------
-HFSG_CORE_SRC = Path("/home/rashid/projects/hfsg/src")
-if str(HFSG_CORE_SRC) not in sys.path:
-    sys.path.insert(0, str(HFSG_CORE_SRC))
-
-import hfsg  # noqa: E402  (version only)
-from hfsg.batch import BatchRunner, validate_batch_outputs  # noqa: E402  frozen Core
-from hfsg.config import Configuration, ConfigurationLoader  # noqa: E402  frozen Core
-from hfsg.scenarios import (  # noqa: E402  frozen Core
-    ScenarioManager,
-    configuration_hash,
-)
-from hfsg.seeds import derive_child_seed  # noqa: E402  frozen Core
-
+# --- import the frozen Core (never modified), resolved portably ----------
+# The Core directory is resolved at runtime (bundled -> env -> local config ->
+# user-selected). No developer-specific path is hard-coded. The Core modules
+# are imported inside ResearchLabAdapter.__init__ so that a missing Core
+# surfaces a friendly CoreNotFoundError instead of an ImportError traceback.
+from .core import CoreNotFoundError, resolve_core_dir
 from .identity import LINEAGE_STATEMENT
 
-FROZEN_DEFAULT_CONFIG = "/home/rashid/projects/hfsg/config/base.yaml"
 FROZEN_HORIZON_HOURS = 720.0
 
 
@@ -213,11 +204,44 @@ class ResearchLabAdapter:
     Core before a run starts.
     """
 
-    def __init__(self, config_path: str = FROZEN_DEFAULT_CONFIG) -> None:
-        self.core_src = HFSG_CORE_SRC
-        self.loader = ConfigurationLoader()
+    def __init__(
+        self,
+        config_path: str | Path | None = None,
+        core_dir: str | Path | None = None,
+    ) -> None:
+        core_dir = Path(core_dir) if core_dir else resolve_core_dir()
+        if core_dir is None:
+            raise CoreNotFoundError(
+                "HFSG Core not found. Place an approved Core in the "
+                "`hfsg_core/` folder, set HFSG_CORE_DIR, or select the Core "
+                "location on the About / System Information page."
+            )
+        self.core_dir = core_dir
+        self.core_src = core_dir / "src"
+        if str(self.core_src) not in sys.path:
+            sys.path.insert(0, str(self.core_src))
+
+        # Lazy frozen-Core import (inside __init__ so a missing Core is a
+        # friendly CoreNotFoundError, not a module-level ImportError).
+        import hfsg  # noqa: F401  frozen Core (version only)
+        from hfsg.batch import BatchRunner, validate_batch_outputs  # frozen Core
+        from hfsg.config import Configuration, ConfigurationLoader  # frozen Core
+        from hfsg.scenarios import ScenarioManager, configuration_hash  # frozen Core
+        from hfsg.seeds import derive_child_seed  # frozen Core
+
+        self._hfsg = hfsg
+        self._BatchRunner = BatchRunner
+        self._validate_batch_outputs = validate_batch_outputs
+        self._Configuration = Configuration
+        self._ConfigurationLoader = ConfigurationLoader
+        self._ScenarioManager = ScenarioManager
+        self._configuration_hash = configuration_hash
+        self._derive_child_seed = derive_child_seed
+
+        config_path = config_path or str(core_dir / "config" / "base.yaml")
+        self.loader = self._ConfigurationLoader()
         self.frozen_config = self.loader.load(config_path)
-        self.manager = ScenarioManager(self.frozen_config)
+        self.manager = self._ScenarioManager(self.frozen_config)
         self.frozen_config_path = Path(config_path)
 
     # -- frozen-Core knowledge surfaced without reimplementation ----------
@@ -289,12 +313,12 @@ class ResearchLabAdapter:
     ) -> str:
         """Delegates to the Core's canonical effective-config hash."""
         runtime = self.runtime_config(scenario_id, simulation_hours, custom_profile)
-        manager = ScenarioManager(runtime)
-        return configuration_hash(manager.effective_configuration(scenario_id))
+        manager = self._ScenarioManager(runtime)
+        return self._configuration_hash(manager.effective_configuration(scenario_id))
 
     def child_seed(self, master_seed: int, scenario_id: str, run_index: int) -> int:
         """Delegates to the Core seed policy (hfsg-child-seed-v1)."""
-        return derive_child_seed(master_seed, scenario_id, run_index)
+        return self._derive_child_seed(master_seed, scenario_id, run_index)
 
     # -- one job: generate -> validate -> Result Store --------------------
     def run_job(
@@ -321,7 +345,7 @@ class ResearchLabAdapter:
 
         # 1) LIVE GENERATION (frozen Core, bounded memory, one run at a time)
         started = time.perf_counter()
-        runner = BatchRunner(
+        runner = self._BatchRunner(
             runtime,
             out_dir,
             target_patients=int(target_patients),
@@ -336,7 +360,7 @@ class ResearchLabAdapter:
 
         # 2) VALIDATION (frozen Core, bounded memory)
         vstarted = time.perf_counter()
-        report = validate_batch_outputs(out_dir)
+        report = self._validate_batch_outputs(out_dir)
         validation_elapsed = time.perf_counter() - vstarted
 
         # 3) RESULT STORE bookkeeping: reflect the validation outcome in the
@@ -365,7 +389,7 @@ class ResearchLabAdapter:
             custom_profile=dict(custom_profile) if custom_profile else None,
             frozen_config_source=str(self.frozen_config_path),
             frozen_core_statement=LINEAGE_STATEMENT,
-            engine_version=hfsg.__version__,
+            engine_version=self._hfsg.__version__,
             created_at=datetime.now(timezone.utc).isoformat(),
         )
         (out_dir / "job_spec.json").write_text(

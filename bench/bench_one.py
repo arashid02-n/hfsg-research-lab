@@ -8,12 +8,14 @@ Usage:
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from research_lab.adapter import ResearchLabAdapter  # noqa: E402
+from research_lab.core import resolve_core_dir  # noqa: E402
 
 
 def main() -> int:
@@ -36,11 +38,12 @@ def main() -> int:
         run_label=args.label,
     )
     record = outcome.to_dict()
+    core_dir = resolve_core_dir()
     record.update(
         {
-            "core_repo": "/home/rashid/projects/hfsg",
-            "core_commit": "affe7c8",
-            "config": "/home/rashid/projects/hfsg/config/base.yaml",
+            "core_repo": str(core_dir) if core_dir else None,
+            "core_commit": os.environ.get("HFSG_CORE_COMMIT", "affe7c8"),
+            "config": str(core_dir / "config" / "base.yaml") if core_dir else None,
         }
     )
     print(json.dumps(record, indent=2))
