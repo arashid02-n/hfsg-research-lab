@@ -41,10 +41,14 @@ does not hide or compensate for these; where relevant the UI surfaces them.
 - **Core is external.** The Lab does not bundle the HFSG Core or the Master
   Dataset (see `IP_AND_DISTRIBUTION_BOUNDARY.md`). A Core must be supplied
   via `hfsg_core/`, `HFSG_CORE_DIR`, `hfsg_core.config`, or the About page.
-- **Independent Windows acceptance not yet executed.** The clean-machine and
-  offline checks were run on the developer's Linux environment; a physical
-  Windows-laptop acceptance run is pending (see
-  `PORTABILITY_ACCEPTANCE_REPORT.md`). PASS is not claimed until it is run.
+  The private Academic Demo package may bundle the Core only when the Project
+  Owner explicitly authorizes it (never into the public GitHub repository).
+- **Windows launcher fix verified on Linux only.** The auto-`.venv` +
+  pre-flight launcher logic was verified on a clean Linux environment; the
+  `.bat` execution and the full §10 sequence must still be re-run on the
+  Microsoft Surface by the Project Owner (see
+  `WINDOWS_INDEPENDENT_ACCEPTANCE_REPORT.md`). Windows acceptance is
+  **NOT VERIFIED** and is not claimed as PASS.
 
 ## 4. Machine / performance limits
 

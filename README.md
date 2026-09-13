@@ -46,21 +46,28 @@ A valid Core contains `src/hfsg/__init__.py` and `config/base.yaml`.
 
 ## Installation
 
+Install Python 3.10+ (Windows: tick "Add Python to PATH"). On first launch
+the launcher automatically creates a project-local `.venv` and installs the
+dependencies into it — no manual pip step and no globally installed packages
+are required.
+
+Manual fallback (optional):
+
 ```bash
 python3 -m venv .venv
 .venv/bin/pip install -r requirements/requirements.txt
 ```
-
-(Windows: `python -m venv .venv` then `.venv\Scripts\pip install -r requirements\requirements.txt`.)
 
 ## Start
 
 - **Windows:** double-click `START_HFSG.bat`.
 - **macOS / Linux:** run `./START_HFSG`.
 
-The pre-flight check (Python, dependencies, Core availability and identity,
-disk, port) runs automatically, then the app starts and the browser opens at
-http://localhost:8501 (or the first free port).
+The launcher bootstraps the local `.venv` and dependencies, then runs the
+pre-flight check (Python, dependencies, required files, Core availability and
+identity, disk, port). The app starts and the browser opens at
+http://localhost:8501 (or the first free port). On any failure the window
+stays open and shows a human-readable `HFSG STARTUP FAILED` message.
 
 ## Acceptance demo flow (all real, none mocked)
 

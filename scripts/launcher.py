@@ -9,18 +9,19 @@ portable implementation.
 Pre-flight checks (all errors are human-readable, never a traceback):
   1. Python interpreter / runtime
   2. required dependencies (streamlit, pandas, pyarrow, PyYAML, numpy)
-  3. HFSG Core availability      (portable resolution)
-  4. HFSG Core identity          (version / baseline / frozen commit)
-  5. writable results directory
-  6. sufficient free disk
-  7. a free local port
+  3. required local files         (app.py, research_lab/, launcher)
+  4. HFSG Core availability       (portable resolution)
+  5. HFSG Core identity           (version / baseline / frozen commit)
+  6. writable results directory
+  7. sufficient free disk
+  8. a free local port
 
 Exit codes:
   0  app started and exited normally
   2  HFSG Core not found
   3  HFSG Core identity mismatch (LIVE RUN BLOCKED)
-  4  missing dependency / environment problem
-  5  insufficient disk / unwritable output directory
+  4  missing dependency / missing local files / environment problem
+  5  insufficient disk / unwritable output directory / no free port
 """
 
 from __future__ import annotations
@@ -54,9 +55,27 @@ def _say(message: str) -> None:
 def _fail(message: str, code: int) -> int:
     print("")
     print("=" * 62)
+    print("HFSG STARTUP FAILED")
+    print("")
     print(message)
     print("=" * 62)
     return code
+
+
+def check_local_files() -> None:
+    required = {
+        "app.py": LAB_ROOT / "app.py",
+        "research_lab/": LAB_ROOT / "research_lab" / "__init__.py",
+        "scripts/launcher.py": LAB_ROOT / "scripts" / "launcher.py",
+    }
+    missing = [name for name, path in required.items() if not path.is_file()]
+    if missing:
+        _fail(
+            "Required Lab files are missing: " + ", ".join(missing) + ".\n\n"
+            "The Academic Demo package appears incomplete.",
+            4,
+        )
+        sys.exit(4)
 
 
 def check_dependencies() -> None:
@@ -69,10 +88,11 @@ def check_dependencies() -> None:
     if missing:
         joined = ", ".join(missing)
         _fail(
-            f"Missing required dependencies: {joined}.\n\n"
-            "Install them once (e.g. in a terminal):\n"
-            "    python -m pip install -r requirements/requirements.txt\n"
-            "then double-click START_HFSG.bat again.",
+            f"Required dependencies are missing: {joined}.\n\n"
+            "The project-local .venv is incomplete. Re-run "
+            "START_HFSG.bat / START_HFSG so bootstrap.py can (re)install "
+            "them, or install manually with:\n"
+            "    python -m pip install -r requirements/requirements.txt",
             4,
         )
         sys.exit(4)
@@ -86,13 +106,15 @@ def check_core() -> None:
     if core_dir is None:
         _fail(
             "HFSG Core not found.\n\n"
-            "Provide the approved HFSG Core one of these ways:\n"
-            "  1. Copy the Core into the `hfsg_core/` folder next to this app\n"
-            "  2. Set the HFSG_CORE_DIR environment variable to the Core path\n"
-            "  3. Run the app and choose the Core on the About / System\n"
-            "     Information page (writes hfsg_core.config)\n\n"
-            "A valid Core contains `src/hfsg/__init__.py` and\n"
-            "`config/base.yaml`.",
+            "Expected location:\n"
+            "    hfsg_core/\n\n"
+            "Action:\n"
+            "    Place the approved HFSG Core in the hfsg_core directory "
+            "next to this app and restart HFSG.\n\n"
+            "A valid Core contains `src/hfsg/__init__.py` and "
+            "`config/base.yaml`. (Alternatives: set the HFSG_CORE_DIR "
+            "environment variable, or select the Core on the About / "
+            "System Information page.)",
             2,
         )
         sys.exit(2)
@@ -103,12 +125,13 @@ def check_core() -> None:
             "version/baseline/frozen-commit mismatch or modified Core files"
         )
         _fail(
-            f"LIVE RUN BLOCKED — incompatible HFSG Core detected.\n\n"
-            f"Core directory: {core_dir}\n"
+            "LIVE RUN BLOCKED — incompatible HFSG Core detected.\n\n"
             f"Reason: {reason}\n\n"
             "Expected identity:\n"
-            f"  {identity['statement']}\n\n"
-            "Provide the approved frozen Core checkout and retry.",
+            f"    {identity['statement']}\n\n"
+            "Action:\n"
+            "    Replace the Core with the approved frozen checkout and "
+            "restart HFSG. Live runs are disabled until the Core matches.",
             3,
         )
         sys.exit(3)
@@ -186,6 +209,7 @@ def main() -> int:
     _say("HFSG Research Lab — pre-flight check")
     _say(f"  Python: {sys.version.split()[0]}")
     _say(f"  Lab directory: {LAB_ROOT}")
+    check_local_files()
     check_dependencies()
     check_core()
     check_output_dir()

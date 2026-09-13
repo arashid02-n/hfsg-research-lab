@@ -54,6 +54,12 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def _is_core_dir(path: Path) -> bool:
+    return (path / "src" / "hfsg" / "__init__.py").is_file() and (
+        path / "config" / "base.yaml"
+    ).is_file()
+
+
 def build() -> Path:
     if PKG.exists():
         shutil.rmtree(PKG)
@@ -80,19 +86,31 @@ def build() -> Path:
     for name in ROOT_DOCS:
         (PKG / "docs" / name).unlink(missing_ok=True)
 
-    # Core placeholder (never bundled)
+    # hfsg_core/: bundle the privately supplied Core ONLY if it is present
+    # locally. It is git-ignored, never committed, and never published. When
+    # absent, ship the empty placeholder with instructions instead.
+    supplied_core = LAB_ROOT / "hfsg_core"
     (PKG / "hfsg_core").mkdir(exist_ok=True)
-    (PKG / "hfsg_core" / "README.txt").write_text(
-        "Place your approved HFSG Core here.\n\n"
-        "This folder must contain:\n"
-        "  src/hfsg/__init__.py\n"
-        "  config/base.yaml\n\n"
-        "The Core is NOT distributed with the Lab (see "
-        "docs/IP_AND_DISTRIBUTION_BOUNDARY.md).\n"
-        "Alternatives: set HFSG_CORE_DIR, or select the Core on the "
-        "About / System Information page.\n",
-        encoding="utf-8",
-    )
+    if _is_core_dir(supplied_core):
+        # Bundle ONLY the approved Core source/config — never its dataset
+        # (data/), environment (.venv), or generated parquet.
+        _copy_tree(
+            supplied_core,
+            PKG / "hfsg_core",
+            excludes=("data", ".venv", "*.parquet", ".pytest_cache", "__pycache__"),
+        )
+    else:
+        (PKG / "hfsg_core" / "README.txt").write_text(
+            "Place your approved HFSG Core here.\n\n"
+            "This folder must contain:\n"
+            "  src/hfsg/__init__.py\n"
+            "  config/base.yaml\n\n"
+            "The Core is NOT distributed with the Lab (see "
+            "docs/IP_AND_DISTRIBUTION_BOUNDARY.md).\n"
+            "Alternatives: set HFSG_CORE_DIR, or select the Core on the "
+            "About / System Information page.\n",
+            encoding="utf-8",
+        )
 
     # Demo reference metadata (NOT the dataset)
     (PKG / "demo_release").mkdir(exist_ok=True)

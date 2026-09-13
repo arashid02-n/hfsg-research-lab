@@ -33,10 +33,21 @@ find it — any one of these is enough (they are checked in this order):
 > The Core is never copied into the public package (see
 > `IP_AND_DISTRIBUTION_BOUNDARY.md`).
 
-## 3. Install dependencies (one-time)
+## 3. Install dependencies (automatic)
+
+No manual step is required. On first launch, `START_HFSG.bat` / `START_HFSG`
+runs `scripts/bootstrap.py`, which:
+
+1. creates a project-local `.venv` (if missing),
+2. installs `requirements/requirements.txt` into `.venv` (first run only),
+3. starts the Lab with the `.venv` interpreter.
+
+This means the Lab **never** depends on globally installed Python packages.
+
+Manual fallback (optional, for advanced users):
 
 ```bash
-# Windows (PowerShell or cmd)
+# Windows
 python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements\requirements.txt
 

@@ -1,40 +1,49 @@
 @echo off
-setlocal
+setlocal EnableExtensions
 rem ============================================================
 rem  HFSG Research Lab - one-click launcher (Windows)
 rem
-rem  Double-click this file. It runs the portable pre-flight
-rem  checks (Python, dependencies, HFSG Core, disk, port) and
-rem  then starts the Lab and opens your browser automatically.
+rem  Double-click this file. It:
+rem    1. finds a base Python interpreter
+rem    2. runs scripts\bootstrap.py, which creates a
+rem       project-local .venv (if missing), installs the
+rem       dependencies into it, and starts the Lab
+rem    3. keeps this window open if anything fails so you can
+rem       read the message
 rem ============================================================
 cd /d "%~dp0"
 
-rem ---- locate a Python interpreter ---------------------------
-set "PY="
-where py >nul 2>nul && set "PY=py -3"
-if not defined PY (
-    where python >nul 2>nul && set "PY=python"
+rem ---- locate a base Python (to bootstrap the local .venv) ----
+set "BASE_PY="
+where py >nul 2>nul
+if not errorlevel 1 set "BASE_PY=py -3"
+if not defined BASE_PY (
+    where python >nul 2>nul
+    if not errorlevel 1 set "BASE_PY=python"
 )
-if not defined PY (
+if not defined BASE_PY (
     echo.
-    echo Python was not found.
+    echo ============================================================
+    echo HFSG STARTUP FAILED
     echo.
-    echo Install Python 3.10 or newer from https://www.python.org/downloads/
-    echo and make sure "Add Python to PATH" is ticked during installation.
-    echo Then double-click START_HFSG.bat again.
+    echo Reason: Python was not found.
+    echo.
+    echo Action: Install Python 3.10 or newer from
+    echo         https://www.python.org/downloads/
+    echo         and enable "Add Python to PATH", then restart HFSG.
+    echo ============================================================
     echo.
     pause
     exit /b 1
 )
 
-rem ---- run the portable pre-flight launcher ------------------
-%PY% "%~dp0scripts\launcher.py" %*
+rem ---- bootstrap .venv + dependencies + launch ----
+%BASE_PY% "%~dp0scripts\bootstrap.py" %*
 set "CODE=%ERRORLEVEL%"
 
 if not "%CODE%"=="0" (
     echo.
-    echo HFSG Research Lab did not start (exit code %CODE%).
-    echo Review the message above.
+    echo HFSG STARTUP FAILED - see the message above for the reason.
     echo.
     pause
 )

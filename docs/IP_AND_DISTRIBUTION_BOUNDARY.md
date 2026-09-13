@@ -84,6 +84,14 @@ The Academic package ships with an **empty** `hfsg_core/` placeholder and
 clear instructions, so it is usable on a machine where the Project Owner has
 supplied their approved Core.
 
+**Private-package exception (owner-authorized):** when the Project Owner
+places their approved Core in the local `hfsg_core/` folder and runs
+`scripts/build_package.py`, the build bundles the Core **into the private
+Academic Demo zip only** (the `hfsg_core/` folder is git-ignored and is never
+committed or pushed to the public GitHub repository). The build always
+excludes the dataset (`data/`), `.venv`, and `*.parquet`. This private-package
+bundling requires the Project Owner's explicit authorization.
+
 ---
 
 **Conclusion:** The Academic package is Lab-only. It neither copies the Core

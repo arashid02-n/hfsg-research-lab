@@ -11,16 +11,15 @@
      - They are NOT clinically validated.
      - They are for RESEARCH / EDUCATION use only.
 
-2. HOW TO INSTALL (once)
+2. HOW TO INSTALL (automatic)
    - Install Python 3.10+ (Windows: tick "Add Python to PATH").
    - Copy your approved HFSG Core into the "hfsg_core" folder next to this
      app (the folder that contains "src/hfsg/__init__.py" and
      "config/base.yaml"). Alternatively set the HFSG_CORE_DIR environment
      variable, or pick the Core path on the About / System Information page.
-   - Install the dependencies:
-         python -m venv .venv
-         .venv\Scripts\python -m pip install -r requirements\requirements.txt
-     (macOS/Linux use:  .venv/bin/python -m pip install -r requirements/requirements.txt)
+   - On first launch the launcher automatically creates a project-local
+     ".venv" and installs the dependencies into it. No manual pip step and
+     no globally installed packages are required.
 
    Full details:  INSTALLATION_GUIDE.md
 
@@ -49,6 +48,7 @@
    - KNOWN_LIMITATIONS.md          what the Lab does and does not do
    - IP_AND_DISTRIBUTION_BOUNDARY.md  what may be distributed
    - PUBLIC_REPOSITORY_AUDIT.md    repository cleanliness audit
+   - WINDOWS_INDEPENDENT_ACCEPTANCE_REPORT.md
    - PORTABILITY_ACCEPTANCE_REPORT.md
    - OFFLINE_TEST_REPORT.md
    - CORE_IDENTITY_REPORT.md
