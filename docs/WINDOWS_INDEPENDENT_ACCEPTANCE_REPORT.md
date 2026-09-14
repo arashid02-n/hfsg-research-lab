@@ -25,6 +25,7 @@ must be filled in from the actual Surface run.
 |---|---|---|---|
 | 1 | Double-clicking `START_HFSG.bat` made the window disappear; error "`. was unexpected at this time.`" | Batch script had parenthesised `echo (...)` text inside an `if (...)` block; the `)` prematurely closed the block. | Rewrote `START_HFSG.bat` (quoted/restructured, no unquoted parentheses in blocks, `pause` on every failure). |
 | 2 | Global Python dependency execution failed with `WinError 2` (dependencies not installed globally) | Launcher assumed dependencies were installed globally. | New `scripts/bootstrap.py` creates/uses a project-local `.venv` and installs dependencies into it automatically. |
+| 3 | `HFSG STARTUP FAILED — HFSG Core not found. Expected location: hfsg_core/` | The Academic Demo package did not contain the approved/frozen Core (`hfsg_core/` held only a placeholder). | The package now bundles the **approved frozen Core** into `hfsg_core/` (verified identity `0.6.0` / `08032c3` / `affe7c8`), with `CORE_PROVENANCE.json` so identity is verified even without git. See `CORE_IDENTITY_REPORT.md`. |
 
 ## 2. Fixes applied
 
@@ -72,8 +73,8 @@ acceptance test. It is not a substitute for §10.
 | `.venv` creation time | NOT VERIFIED | VERIFIED (auto) |
 | Dependency install time | NOT VERIFIED | VERIFIED (auto, cached) |
 | Startup time | NOT VERIFIED | VERIFIED (launch OK) |
-| Core discovery | NOT VERIFIED | VERIFIED (`hfsg_core/`) |
-| Core identity | NOT VERIFIED | VERIFIED (match) |
+| Core discovery | NOT VERIFIED | VERIFIED (`hfsg_core/`, extracted package root) |
+| Core identity | NOT VERIFIED | VERIFIED (provenance, no git) |
 | Browser launch | NOT VERIFIED | VERIFIED (server up) |
 | 10K generation time | NOT VERIFIED | 9.10 s |
 | Validation time | NOT VERIFIED | 23.13 s |
@@ -86,7 +87,33 @@ acceptance test. It is not a substitute for §10.
 | Offline | NOT VERIFIED | PASS (proxy-blocked network) |
 | Restart | NOT VERIFIED | n/a |
 
-## 5. Required next step (Project Owner)
+## 5. Acceptance matrix
+
+Status on the Microsoft Surface is **NOT VERIFIED** until the Project Owner
+runs the sequence on the actual machine.
+
+| Test | Status (Surface) |
+|---|---|
+| START_HFSG.bat | NOT VERIFIED |
+| Automatic .venv | NOT VERIFIED |
+| Dependency bootstrap | NOT VERIFIED |
+| Python detection | NOT VERIFIED |
+| Pre-flight | NOT VERIFIED |
+| Core Discovery | NOT VERIFIED |
+| Core Identity | NOT VERIFIED |
+| Browser launch | NOT VERIFIED |
+| S1 | NOT VERIFIED |
+| 10K Live Generation | NOT VERIFIED |
+| Validation | NOT VERIFIED |
+| Dashboard | NOT VERIFIED |
+| Patient Explorer | NOT VERIFIED |
+| Same Seed | NOT VERIFIED |
+| Comparison | NOT VERIFIED |
+| Export | NOT VERIFIED |
+| Offline | NOT VERIFIED |
+| Restart | NOT VERIFIED |
+
+## 6. Required next step (Project Owner)
 
 Run the full §10 sequence on the Microsoft Surface using the rebuilt package
 and fill in the Windows column above. Then:

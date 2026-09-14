@@ -34,15 +34,23 @@ HFSG Core** (v0.6.0) without modifying any model, configuration or validation.
 
 ## Where the HFSG Core comes from
 
-The Lab does **not** bundle the HFSG Core (see `IP_AND_DISTRIBUTION_BOUNDARY.md`).
-It resolves the Core at startup in this order:
+**Architecture:** Research Lab → Frozen HFSG Core.
 
-1. `hfsg_core/` (or `core/`) inside this directory — drop the Core here;
+The frozen HFSG Core is distributed **separately and privately**. It is **not
+included in this public repository**, and no Core source or dataset is ever
+committed or published here. The Lab resolves the Core at startup in this
+order (see `IP_AND_DISTRIBUTION_BOUNDARY.md`):
+
+1. `hfsg_core/` (or `core/`) inside this directory — the approved Core is
+   supplied by the Project Owner (bundled into the private Academic Demo
+   package only);
 2. environment variable `HFSG_CORE_DIR`;
 3. this directory's `hfsg_core.config` file;
 4. a Core directory selected on the About / System Information page.
 
-A valid Core contains `src/hfsg/__init__.py` and `config/base.yaml`.
+A valid Core contains `src/hfsg/__init__.py` and `config/base.yaml`, and its
+identity (`HFSG Core v0.6.0`, baseline `08032c3`, frozen commit `affe7c8`) is
+verified at runtime — a missing or mismatched Core blocks live runs.
 
 ## Installation
 
