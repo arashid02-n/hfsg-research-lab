@@ -32,7 +32,6 @@ from __future__ import annotations
 
 import copy
 import json
-import resource
 import sys
 import time
 from dataclasses import dataclass
@@ -123,7 +122,7 @@ class BatchOutcome:
     cumulative_events: int
     generation_elapsed_seconds: float
     validation_elapsed_seconds: float
-    peak_rss_bytes: int
+    peak_rss_bytes: Optional[int]
     output_size_bytes: int
     validation_report: Dict[str, Any]
     effective_configuration_hash: str
@@ -427,7 +426,7 @@ class ResearchLabAdapter:
             cumulative_events=runner.cumulative_events,
             generation_elapsed_seconds=generation_elapsed,
             validation_elapsed_seconds=validation_elapsed,
-            peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024,
+            peak_rss_bytes=_peak_rss_bytes(),
             output_size_bytes=_directory_size(out_dir),
             validation_report=report,
             effective_configuration_hash=self.effective_configuration_hash(
@@ -444,3 +443,18 @@ def _directory_size(path: Path) -> int:
         if p.is_file():
             total += p.stat().st_size
     return total
+
+
+def _peak_rss_bytes() -> Optional[int]:
+    """Peak resident-set memory in bytes, or None when not measurable.
+
+    ``resource.getrusage`` is POSIX-only (unavailable on Windows). On
+    platforms where it is unavailable the function returns None so the Lab
+    reports "Peak RAM: NOT AVAILABLE" instead of failing to import.
+    """
+    try:
+        import resource  # POSIX only; guarded import
+
+        return resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+    except (ImportError, AttributeError, OSError):
+        return None
