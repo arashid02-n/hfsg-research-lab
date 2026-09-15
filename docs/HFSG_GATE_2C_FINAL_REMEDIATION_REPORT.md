@@ -111,11 +111,11 @@ approved Core incl. `CORE_PROVENANCE.json`; `data/`, `.git`, `.venv`,
 
 ## 10. SHA-256
 
-```
-daabc3ef1bc5806297bbd0e0676d23f29a5f958ce8220a78f23c8c0851d309fb  HFSG_Academic_Demo_v1.0.zip
-```
-
-Authoritative full checksum file: `release/SHA256SUMS` (`sha256sum -c` = OK).
+The authoritative SHA-256 of the exact delivered `HFSG_Academic_Demo_v1.0.zip`
+is recorded in `release/SHA256SUMS` in the private handover package
+(`sha256sum -c` = OK). This report is delivered **inside the ZIP**, so it does
+not embed the ZIP's own digest (self-referential); the checksum is verified
+against the ZIP via `SHA256SUMS`, which is delivered outside the ZIP.
 
 ## 11. Remaining limitations
 
