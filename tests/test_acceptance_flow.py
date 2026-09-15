@@ -60,6 +60,42 @@ def test_ten_pages_render() -> None:
         assert at.session_state["page"] == page
 
 
+def _click_button(at: AppTest, label: str) -> AppTest:
+    btn = next(b for b in at.button if b.label == label)
+    btn.click().run()
+    assert not at.exception, [e.value for e in at.exception]
+    return at
+
+
+def test_button_navigation_paths() -> None:
+    """Programmatic navigation (set_page + rerun) must not raise
+    StreamlitWidgetAlreadyInstantiatedError for page_radio."""
+    at = _app().run()
+    assert not at.exception
+
+    # Home -> Scenario Builder (button)
+    at = _click_button(at, "Open Scenario Builder")
+    assert at.session_state["page"] == "Scenario Builder"
+
+    # Scenario Builder -> Run Simulation (button)
+    at = _click_button(at, "Open Run Simulation")
+    assert at.session_state["page"] == "Run Simulation"
+
+    # Scenario Builder -> Academic Quick Demo (button)
+    at = _goto(at, "Scenario Builder")
+    at = _click_button(at, "Open Quick Demo")
+    assert at.session_state["page"] == "Academic Quick Demo"
+
+    # Home -> Academic Quick Demo (button)
+    at = _goto(at, "Home")
+    at = _click_button(at, "Open Academic Quick Demo")
+    assert at.session_state["page"] == "Academic Quick Demo"
+
+    # Radio navigation still works after programmatic navigation
+    at = _goto(at, "Export / Run Summary")
+    assert at.session_state["page"] == "Export / Run Summary"
+
+
 def test_acceptance_flow_run_then_reproduce_match() -> None:
     at = _goto(_app().run(), "Run Simulation")
 

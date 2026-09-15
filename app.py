@@ -19,12 +19,35 @@ st.set_page_config(page_title="HFSG Research Lab", page_icon="🏥", layout="wid
 ensure_state()
 
 
+def _on_page_radio_change() -> None:
+    """Radio callback: a user selecting a page in the sidebar updates the
+    navigation source of truth (``page``)."""
+    st.session_state["page"] = st.session_state["page_radio"]
+
+
+def _sync_page_radio() -> None:
+    """Keep the widget-bound ``page_radio`` key aligned with ``page`` *before*
+    the radio widget is instantiated.
+
+    Streamlit forbids writing a widget key only after that widget has been
+    created in the current run. Doing it here (pre-instantiation) is safe and
+    lets programmatic navigation (``set_page``) drive the radio selection.
+    """
+    if st.session_state.get("page_radio") != st.session_state.get("page"):
+        st.session_state["page_radio"] = st.session_state["page"]
+
+
 def sidebar() -> None:
     with st.sidebar:
         st.title("HFSG Research Lab")
         st.caption("Non-clinical synthetic flow researcher / educator tool.")
-        st.radio("Page", APP_PAGES, key="page_radio", label_visibility="collapsed")
-        st.session_state["page"] = st.session_state["page_radio"]
+        st.radio(
+            "Page",
+            APP_PAGES,
+            key="page_radio",
+            on_change=_on_page_radio_change,
+            label_visibility="collapsed",
+        )
         st.markdown("---")
         identity = verified_identity()
         label = identity["statement"]
@@ -48,6 +71,7 @@ def sidebar() -> None:
 
 
 def main() -> None:
+    _sync_page_radio()
     sidebar()
     renderer = RENDERERS[st.session_state["page"]]
     renderer()

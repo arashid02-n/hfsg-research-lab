@@ -91,6 +91,13 @@ def current_custom_profile() -> dict:
 
 
 def set_page(page: str) -> None:
+    """Request a page transition.
+
+    Only the non-widget ``page`` key (the navigation source of truth) is
+    written here. The widget-bound ``page_radio`` key is intentionally NOT
+    written: writing a widget key after that widget has been instantiated in
+    the same run raises ``StreamlitWidgetAlreadyInstantiatedError``. The
+    sidebar radio is instead kept in sync (before its instantiation) in
+    ``app._sync_page_radio``.
+    """
     st.session_state["page"] = page
-    if "page_radio" in st.session_state:
-        st.session_state["page_radio"] = page
