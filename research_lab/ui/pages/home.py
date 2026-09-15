@@ -65,7 +65,13 @@ def render() -> None:
             for label, value in fields:
                 st.markdown(f"**{label}:** {value}")
         else:
-            st.warning("Released manifest not found (read-only check).")
+            st.info(
+                "The Phase 1 release manifest is not included in this "
+                "Academic Demo package: the Master Dataset (Core "
+                "`data/output/step9`) is excluded by design at the "
+                "distribution boundary. The frozen Core still validates this "
+                "Lab's own runs independently."
+            )
 
     st.subheader("Recorded Lab runs")
     store = get_store()
